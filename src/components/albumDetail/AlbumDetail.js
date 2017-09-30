@@ -11,6 +11,7 @@ const AlbumDetail = ({album}) => {
 
   return (
     <Card>
+      {/*artist image, name  and album name section*/}
       <CardSection>
         <View style={styles.styles.thumbnailContainerStyle}>
           <Image
@@ -24,6 +25,7 @@ const AlbumDetail = ({album}) => {
         </View>
       </CardSection>
 
+      {/*album image section*/}
       <CardSection>
         <Image
           style={styles.styles.imageStyle}
@@ -31,6 +33,7 @@ const AlbumDetail = ({album}) => {
         />
       </CardSection>
 
+      {/*button section*/}
       <CardSection>
         <Button opPress={() => Linking.openURL(url)}>
           Buy Now

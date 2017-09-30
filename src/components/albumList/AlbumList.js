@@ -1,8 +1,7 @@
 import React, {Component} from 'react'
 import {ScrollView} from 'react-native';
-import axios from 'axios';
 import AlbumDetail from '../albumDetail/AlbumDetail'
-
+import AlbumsService from '../../../services/albumsService/AlbumsService'
 
 class AlbumList extends Component {
 
@@ -10,14 +9,16 @@ class AlbumList extends Component {
     albums: []
   };
 
+//getting data.
   componentWillMount() {
-    axios.get('https://rallycoding.herokuapp.com/api/music_albums')
+    AlbumsService.getAlbumsList()
       .then(response => this.setState(
         {albums: response.data}
         )
       );
   }
 
+  //mapping over the albums array and creating albums list.
   renderAlbums() {
     return this.state.albums.map(album =>
       <AlbumDetail
